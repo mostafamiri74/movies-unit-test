@@ -1,0 +1,62 @@
+<div class="contain mt-3 mb-5 p-4">
+  <!-- All movies  -->
+  <div class="row">
+    <h5 class="text-white">All Movies</h5>
+    <div class="rowposter mt-3 p-2">
+      <ng-container *ngFor="let t of allMovieResult">
+        <img
+          [src]="t.poster"
+          class="rowimg largeposter"
+          alt="..."
+          loading="lazy"
+          [routerLink]="['/movie', t.id]"
+        />
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- Drama mMovies  -->
+  <div class="row mt-4">
+    <h5 class="text-white">Drama Movies</h5>
+    <div class="rowposter mt-3 p-2">
+      <ng-container *ngFor="let a of dramaMovieResult">
+        <img
+          [src]="a.poster"
+          class="rowimg largeposter"
+          alt="..."
+          [routerLink]="['/movie', a.id]"
+        />
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- action movies  -->
+  <div class="row mt-4">
+    <h5 class="text-white">Action Movies</h5>
+    <div class="rowposter mt-3 p-2">
+      <ng-container *ngFor="let a of actionMovieResult">
+        <img
+          [src]="a.poster"
+          class="rowimg largeposter"
+          alt="..."
+          [routerLink]="['/movie', a.id]"
+        />
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- Crime Movies  -->
+  <div class="row mt-4">
+    <h5 class="text-white">Crime Movies</h5>
+    <div class="rowposter mt-3 p-2">
+      <ng-container *ngFor="let a of crimeMovieResult">
+        <img
+          [src]="a.poster"
+          class="rowimg largeposter"
+          alt="..."
+          [routerLink]="['/movie', a.id]"
+        />
+      </ng-container>
+    </div>
+  </div>
+</div>
