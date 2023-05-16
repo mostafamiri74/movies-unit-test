@@ -1,1 +1,5 @@
-export const environment = {};
+export const environment = {
+  production: false,
+
+  baseUrl: 'https://moviesapi.ir/api/v1',
+};
