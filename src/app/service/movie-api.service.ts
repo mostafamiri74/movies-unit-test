@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { IMovieDetails, IMovieRequestData } from '../models/movie.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -9,51 +10,35 @@ import { environment } from 'src/environments/environment';
 export class MovieApiService {
   constructor(private http: HttpClient) {}
 
-  // allmovieapidata
-  AllMovieApiData(): Observable<any> {
-    return this.http.get<any>(`${environment.baseUrl}/movies?page=1`);
+  getAllMovie(): Observable<IMovieRequestData> {
+    return this.http.get<IMovieRequestData>(`${environment.baseUrl}/movies`);
   }
 
-  // crime
-  fetchCrimeMovies(): Observable<any> {
-    return this.http.get<any>(`${environment.baseUrl}/genres/1/movies`);
-  }
-
-  // drama
-  fetchDramaMovies(): Observable<any> {
-    return this.http.get<any>(`${environment.baseUrl}/genres/4/movies`);
-  }
-
-  // action
-  fetchActionMovies(): Observable<any> {
-    return this.http.get<any>(`${environment.baseUrl}/genres/3/movies`);
-  }
-
-  // searchmovive
-  getSearchMovie(data: any): Observable<any> {
-    console.log(data, 'movie#');
-
-    return this.http.get<any>(
-      `${environment.baseUrl}/movies?query=${data.movieName}`
+  getCrimeMovies(): Observable<IMovieRequestData> {
+    return this.http.get<IMovieRequestData>(
+      `${environment.baseUrl}/genres/${environment.crimeGenresId}/movies`
     );
   }
 
-  bannerApiData(): Observable<any> {
-    return this.http.get<any>(`${environment.baseUrl}/trending/all/week`);
+  getDramaMovies(): Observable<IMovieRequestData> {
+    return this.http.get<IMovieRequestData>(
+      `${environment.baseUrl}/genres/${environment.dramaGenresId}/movies`
+    );
   }
 
-  // getmoviedatails
-  getMovieDetails(data: any): Observable<any> {
-    return this.http.get<any>(`${environment.baseUrl}/movies/${data}`);
+  getActionMovies(): Observable<IMovieRequestData> {
+    return this.http.get<IMovieRequestData>(
+      `${environment.baseUrl}/genres/${environment.actionGenresId}/movies`
+    );
   }
 
-  // getMovieVideo
-  getMovieVideo(data: any): Observable<any> {
-    return this.http.get<any>(`${environment.baseUrl}/movie/${data}/videos`);
+  getSearchMovie(movieName: any): Observable<IMovieRequestData> {
+    return this.http.get<IMovieRequestData>(
+      `${environment.baseUrl}/movies?query=${movieName}`
+    );
   }
 
-  // getMovieCast
-  getMovieCast(data: any): Observable<any> {
-    return this.http.get<any>(`${environment.baseUrl}/movie/${data}/credits`);
+  getMovieDetails(id: number): Observable<IMovieDetails> {
+    return this.http.get<IMovieDetails>(`${environment.baseUrl}/movies/${id}`);
   }
 }

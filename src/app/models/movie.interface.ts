@@ -8,6 +8,12 @@ export interface IMovie {
 
 export interface IMovieRequestData {
   data: IMovie[];
+  metadata: {
+    current_page: number;
+    per_page: number;
+    page_count: number;
+    total_count: number;
+  };
 }
 
 export interface IMovieDetails {
