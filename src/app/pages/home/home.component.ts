@@ -27,32 +27,32 @@ export class HomeComponent {
   }
 
   ngOnInit(): void {
-    this.allData();
+    this.allMovie();
     this.actionMovie();
     this.crimeMovie();
     this.dramaMovie();
   }
 
-  allData() {
-    this.service.AllMovieApiData().subscribe((result: IMovieRequestData) => {
+  allMovie() {
+    this.service.getAllMovie().subscribe((result: IMovieRequestData) => {
       this.allMovieResult = result.data;
     });
   }
 
   crimeMovie() {
-    this.service.fetchCrimeMovies().subscribe((result: IMovieRequestData) => {
+    this.service.getCrimeMovies().subscribe((result: IMovieRequestData) => {
       this.crimeMovieResult = result.data;
     });
   }
 
   dramaMovie() {
-    this.service.fetchDramaMovies().subscribe((result: IMovieRequestData) => {
+    this.service.getDramaMovies().subscribe((result: IMovieRequestData) => {
       this.dramaMovieResult = result.data;
     });
   }
 
   actionMovie() {
-    this.service.fetchActionMovies().subscribe((result: IMovieRequestData) => {
+    this.service.getActionMovies().subscribe((result: IMovieRequestData) => {
       this.actionMovieResult = result.data;
     });
   }

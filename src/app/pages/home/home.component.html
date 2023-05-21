@@ -6,7 +6,7 @@
       <ng-container *ngFor="let t of allMovieResult">
         <img
           [src]="t.poster"
-          class="rowimg largeposter"
+          class="rowimg largeposter all-movie"
           alt="..."
           loading="lazy"
           [routerLink]="['/movie', t.id]"
@@ -22,7 +22,7 @@
       <ng-container *ngFor="let a of dramaMovieResult">
         <img
           [src]="a.poster"
-          class="rowimg largeposter"
+          class="rowimg largeposter drama-movie"
           alt="..."
           [routerLink]="['/movie', a.id]"
         />
@@ -37,7 +37,7 @@
       <ng-container *ngFor="let a of actionMovieResult">
         <img
           [src]="a.poster"
-          class="rowimg largeposter"
+          class="rowimg largeposter action-movie"
           alt="..."
           [routerLink]="['/movie', a.id]"
         />
@@ -52,7 +52,7 @@
       <ng-container *ngFor="let a of crimeMovieResult">
         <img
           [src]="a.poster"
-          class="rowimg largeposter"
+          class="rowimg largeposter crime-movie"
           alt="..."
           [routerLink]="['/movie', a.id]"
         />
