@@ -27,12 +27,12 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {}
 
   searchForm = new FormGroup({
-    movieName: new FormControl(null),
+    movieName: new FormControl(''),
   });
 
   submitForm() {
     this.service
-      .getSearchMovie(this.searchForm.value)
+      .getSearchMovie(this.searchForm.value.movieName)
       .subscribe((result: IMovieRequestData) => {
         this.searchResult = result.data;
       });
