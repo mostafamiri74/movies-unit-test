@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MovieDetailsComponent } from './movie-details.component';
 import { MovieApiService } from 'src/app/service/movie-api.service';
-import { ActivatedRoute, convertToParamMap } from '@angular/router';
+import { ActivatedRoute, Route, convertToParamMap } from '@angular/router';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { of } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -15,16 +15,6 @@ describe('MovieDetailsComponent', () => {
   let MOVIE_DETAILS: IMovieDetails;
 
   beforeEach(async () => {
-    let mockActivatedRoute = {
-      snapshot: {
-        paramMap: {
-          get: () => {
-            return '1';
-          },
-        },
-      },
-    };
-
     MOVIE_DETAILS = {
       id: 1,
       title: 'The Shawshank Redemption',
@@ -66,7 +56,9 @@ describe('MovieDetailsComponent', () => {
         },
         {
           provide: ActivatedRoute,
-          useValue: { snapshot: { paramMap: convertToParamMap({ id: 1 }) } },
+          useValue: {
+            snapshot: { paramMap: convertToParamMap({ id: MOVIE_DETAILS.id }) },
+          },
         },
       ],
     }).compileComponents();
@@ -101,7 +93,7 @@ describe('MovieDetailsComponent', () => {
 
   it('should movie poster same image src', () => {
     fixture.detectChanges();
-    const moviePosterImageEL: any =
+    const moviePosterImageEL: HTMLImageElement =
       fixture.debugElement.nativeElement.querySelector('img');
     expect(moviePosterImageEL.src).toContain(MOVIE_DETAILS.poster);
   });
