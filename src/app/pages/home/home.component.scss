@@ -1,22 +1,3 @@
-.carousel-inner {
-  height: 700px;
-}
-
-.carousel-inner .carousel-item img {
-  height: 700px;
-  object-fit: cover;
-}
-
-.carousel-caption h2 {
-  color: #e50914;
-  font-weight: bold;
-  font-size: 30px;
-}
-
-.carousel-caption p {
-  color: #ffffff;
-}
-
 .rowposter {
   display: flex;
   overflow-y: hidden;
@@ -29,12 +10,13 @@
   width: 100%;
   box-sizing: content-box;
   transition: transform 450ms;
-  margin-right: 7px;
+  margin-right: 12px;
 }
 
 .rowimg:hover {
-  transform: scale(1.09);
+  transform: scale(1.05);
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .largeposter {
@@ -43,4 +25,8 @@
 
 .rowposter::-webkit-scrollbar {
   display: none;
+}
+
+img {
+  border-radius: 5px;
 }

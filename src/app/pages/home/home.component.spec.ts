@@ -66,26 +66,93 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should ceate exact same number of movie item in list', () => {
-    let homeComponentDEs = fixture.debugElement.queryAll(By.css('.all-movie'));
-    expect(homeComponentDEs.length).toEqual(MOVIE_LIST.data.length);
+  it('should ceate exact same number of movie item in all movie list', () => {
+    let allMovieItemsDEs = fixture.debugElement.queryAll(By.css('.all-movie'));
+    expect(allMovieItemsDEs.length).toEqual(MOVIE_LIST.data.length);
   });
 
-  it('should check whether exact id is sending to router link', () => {
-    const homeComponentDEs = fixture.debugElement.queryAll(
+  it('should check all movie exact id is sending to router link', () => {
+    const allMovieItemsDEs = fixture.debugElement.queryAll(
       By.css('.all-movie')
     );
 
-    for (let i = 0; i < homeComponentDEs.length; i++) {
-      expect(homeComponentDEs[i].nativeElement.routerLink[1]).toEqual(
+    for (let i = 0; i < allMovieItemsDEs.length; i++) {
+      expect(allMovieItemsDEs[i].nativeElement.routerLink[1]).toEqual(
         MOVIE_LIST.data[i].id
       );
     }
   });
 
-  it('should set movies from the service directly', () => {
+  it('should set all movies from the service directly', () => {
     expect(component.allMovieResult.length).toBe(2);
   });
 
-  // For the other three methods, we do the same codes as above
+  it('should ceate exact same number of movie item in crime movie list', () => {
+    let crimeListItemsDEs = fixture.debugElement.queryAll(
+      By.css('.crime-movie')
+    );
+    expect(crimeListItemsDEs.length).toEqual(MOVIE_LIST.data.length);
+  });
+
+  it('should check crime movie exact id is sending to router link', () => {
+    const crimeListItemsDEs = fixture.debugElement.queryAll(
+      By.css('.crime-movie')
+    );
+
+    for (let i = 0; i < crimeListItemsDEs.length; i++) {
+      expect(crimeListItemsDEs[i].nativeElement.routerLink[1]).toEqual(
+        MOVIE_LIST.data[i].id
+      );
+    }
+  });
+
+  it('should set crime movies from the service directly', () => {
+    expect(component.crimeMovieResult.length).toBe(2);
+  });
+
+  it('should ceate exact same number of movie item in drama movie list', () => {
+    let dramaListItemsDEs = fixture.debugElement.queryAll(
+      By.css('.drama-movie')
+    );
+    expect(dramaListItemsDEs.length).toEqual(MOVIE_LIST.data.length);
+  });
+
+  it('should check drama movie exact id is sending to router link', () => {
+    const dramaListItemsDEs = fixture.debugElement.queryAll(
+      By.css('.drama-movie')
+    );
+
+    for (let i = 0; i < dramaListItemsDEs.length; i++) {
+      expect(dramaListItemsDEs[i].nativeElement.routerLink[1]).toEqual(
+        MOVIE_LIST.data[i].id
+      );
+    }
+  });
+
+  it('should set drama movies from the service directly', () => {
+    expect(component.dramaMovieResult.length).toBe(2);
+  });
+
+  it('should ceate exact same number of movie item in action movie list', () => {
+    let actionListItemsDEs = fixture.debugElement.queryAll(
+      By.css('.action-movie')
+    );
+    expect(actionListItemsDEs.length).toEqual(MOVIE_LIST.data.length);
+  });
+
+  it('should check action movie exact id is sending to router link', () => {
+    const actionListItemsDEs = fixture.debugElement.queryAll(
+      By.css('.action-movie')
+    );
+
+    for (let i = 0; i < actionListItemsDEs.length; i++) {
+      expect(actionListItemsDEs[i].nativeElement.routerLink[1]).toEqual(
+        MOVIE_LIST.data[i].id
+      );
+    }
+  });
+
+  it('should set action movies from the service directly', () => {
+    expect(component.actionMovieResult.length).toBe(2);
+  });
 });
